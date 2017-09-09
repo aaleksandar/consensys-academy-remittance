@@ -1,0 +1,318 @@
+{
+  "contract_name": "Remittance",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "emailPass",
+          "type": "bytes32"
+        },
+        {
+          "name": "smsPass",
+          "type": "bytes32"
+        }
+      ],
+      "name": "withdraw",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "pendingTransactions",
+      "outputs": [
+        {
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "name": "deadline",
+          "type": "uint256"
+        },
+        {
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "receiver",
+          "type": "address"
+        },
+        {
+          "name": "deadline",
+          "type": "uint256"
+        },
+        {
+          "name": "emailPass",
+          "type": "bytes32"
+        },
+        {
+          "name": "smsPass",
+          "type": "bytes32"
+        }
+      ],
+      "name": "deposit",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": true,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "destroy",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "emailPass",
+          "type": "bytes32"
+        },
+        {
+          "name": "smsPass",
+          "type": "bytes32"
+        }
+      ],
+      "name": "refund",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_recipient",
+          "type": "address"
+        }
+      ],
+      "name": "destroyAndSend",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "deadline",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "LogDeposit",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "LogWithdraw",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "LogRefund",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "LogSender",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x60606040525b5b60008054600160a060020a03191633600160a060020a03161790555b5b5b6106be806100336000396000f3006060604052361561008b5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416636361514981146100905780637dca77a1146100bd5780637dcc9f071461010957806383197ef01461013a5780638da5cb5b1461014f578063e4683a791461017e578063f2fde38b146101ab578063f5074f41146101cc575b600080fd5b341561009b57600080fd5b6100a96004356024356101ed565b604051901515815260200160405180910390f35b34156100c857600080fd5b6100d360043561029f565b6040518084600160a060020a0316600160a060020a03168152602001838152602001828152602001935050505060405180910390f35b6100a9600160a060020a03600435166024356044356064356102cb565b604051901515815260200160405180910390f35b341561014557600080fd5b61014d61047f565b005b341561015a57600080fd5b6101626104ab565b604051600160a060020a03909116815260200160405180910390f35b341561018957600080fd5b6100a96004356024356104ba565b604051901515815260200160405180910390f35b34156101b657600080fd5b61014d600160a060020a036004351661060f565b005b34156101d757600080fd5b61014d600160a060020a0360043516610667565b005b60008060007f7bbdc4cdaf68dae8f82950cdddba2d429ba45cdc33e01ddbf48570514540858c33604051600160a060020a03909116815260200160405180910390a1338585604051600160a060020a03939093166c010000000000000000000000000283526014830191909152603482015260540160405190819003902060008181526001602081905260409091209081015491935091504390101561029257600080fd5b600192505b505092915050565b6001602081905260009182526040909120805491810154600290910154600160a060020a039092169183565b600080808086116102db57600080fd5b600034116102e857600080fd5b86600160a060020a031633600160a060020a03161415151561030957600080fd5b7f7bbdc4cdaf68dae8f82950cdddba2d429ba45cdc33e01ddbf48570514540858c87604051600160a060020a03909116815260200160405180910390a1868585604051600160a060020a03939093166c01000000000000000000000000028352601483019190915260348201526054016040519081900390206000818152600160208190526040909120908101549193509150156103a657600080fd5b8054600160a060020a033381811673ffffffffffffffffffffffffffffffffffffffff1993841617808555438a01600180870191825534600280890182815560008b815260208590526040908190208054909a169690981695909517885592549187019190915591549401939093557f75a5e6bda1e33b5b8de6cc13827e9ae502ff9fa669fa647ad02e0223545654d59290918990869051600160a060020a039094168452602084019290925260408084019190915260608301919091526080909101905180910390a1600192505b5050949350505050565b60005433600160a060020a0390811691161461049a57600080fd5b600054600160a060020a0316ff5b5b565b600054600160a060020a031681565b600080600080338686604051600160a060020a03939093166c0100000000000000000000000002835260148301919091526034820152605401604051908190039020600081815260016020819052604090912090810154919450925043901061052257600080fd5b815433600160a060020a0390811691161461053c57600080fd5b506002810154600160a060020a03331681156108fc0282604051600060405180830381858888f19350505050151561057357600080fd5b6000838152600160208190526040808320805473ffffffffffffffffffffffffffffffffffffffff191681559182018390556002909101919091557fcea416af7f8ca867c3fd1d551f70202eecb51506c8647ec0c31c32527d2d90399033908390869051600160a060020a03909316835260208301919091526040808301919091526060909101905180910390a1600193505b50505092915050565b60005433600160a060020a0390811691161461062a57600080fd5b600160a060020a03811615610662576000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0383161790555b5b5b50565b60005433600160a060020a0390811691161461068257600080fd5b80600160a060020a0316ff5b5b505600a165627a7a723058201979bfad96805f13b0e76bc5c55f268c95d4a34bac7022e9a88f6f893a8ce3620029",
+  "networks": {
+    "1504968733643": {
+      "events": {
+        "0x75a5e6bda1e33b5b8de6cc13827e9ae502ff9fa669fa647ad02e0223545654d5": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "hash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogDeposit",
+          "type": "event"
+        },
+        "0x4d6e434ba3b90189efbb18e09e35cdc0df21153c27d5bbb2005b7b41f2b20ba5": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "hash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogWithdraw",
+          "type": "event"
+        },
+        "0xcea416af7f8ca867c3fd1d551f70202eecb51506c8647ec0c31c32527d2d9039": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "hash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogRefund",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xee5726b6ec82c75212057b7e10a853c1953fd8ad",
+      "updated_at": 1504969417263
+    }
+  },
+  "schema_version": "0.0.5",
+  "updated_at": 1504973178386
+}
